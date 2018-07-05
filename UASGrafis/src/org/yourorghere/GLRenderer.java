@@ -53,6 +53,7 @@ public class GLRenderer implements GLEventListener {
     float Cx = 5f, Cy = 0f, Cz = 5f;
     float Lx = 0f, Ly = 0f, Lz = -20f;
 
+    private float angel =0;
     public void init(GLAutoDrawable drawable) {
 // Use debug pipeline
 // drawable.setGL(new DebugGL(drawable.getGL()));
@@ -91,37 +92,24 @@ public class GLRenderer implements GLEventListener {
         glu.gluLookAt(Cx, Cy, Cz,
                 Lx, Ly, Lz,
                 0, 1, 0);
-        gl.glPushMatrix();
-        gl.glTranslatef(3f, -1f, -5f);
+        gl.glTranslatef(0f, 0f, -5f);
         gl.glRotatef(0.0f, 1.0f, 0.0f, 0.0f);
         gl.glRotatef(0.0f, 0.0f, 0.0f, 1.0f);
         
         gl.glPushMatrix();
-        gl.glTranslatef(0.0f, 0.0f, -0.2f);
+
+        gl.glPopMatrix();
+        
+        gl.glPushMatrix();
+//        gl.glTranslatef(0f, 0.5f, -5f);
         Objek.badanatas(gl);
         gl.glPopMatrix();
         
-        gl.glPushMatrix();
-        gl.glTranslatef(-1.5f, 0.0f, 0.5f);
-        gl.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-        Objek.bak(gl);
-        gl.glPopMatrix();
+//        gl.glPushMatrix();
+//        Objek.Kubus(gl);
+//        gl.glPopMatrix();
         
-        gl.glPushMatrix();
-        gl.glTranslatef(0.0f, 0.0f, -0.2f);
-        Objek.badanbawah(gl);
-        gl.glPopMatrix();
         
-        gl.glPushMatrix();
-        gl.glTranslatef(0.0f, 0.0f, -0.2f);
-        Objek.bak(gl);
-        gl.glPopMatrix();
-        //Objek.badanatas(gl);
-        Objek.roda(gl);
-        Objek.bak(gl);
-        Objek.badanbawah(gl);
-        gl.glPopMatrix();
-//        Objek.segitigaprisma(gl);
 // Flush all drawing operations to the graphics card
         gl.glFlush();
     }
