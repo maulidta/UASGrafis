@@ -96,18 +96,12 @@ public class GLRenderer implements GLEventListener {
         gl.glRotatef(0.0f, 1.0f, 0.0f, 0.0f);
         gl.glRotatef(0.0f, 0.0f, 0.0f, 1.0f);
         
-        gl.glPushMatrix();
-
-        gl.glPopMatrix();
+        
         
         gl.glPushMatrix();
 //        gl.glTranslatef(0f, 0.5f, -5f);
         Objek.badanatas(gl);
         gl.glPopMatrix();
-        
-//        gl.glPushMatrix();
-//        Objek.Kubus(gl);
-//        gl.glPopMatrix();
         
         
 // Flush all drawing operations to the graphics card
