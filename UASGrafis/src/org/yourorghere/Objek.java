@@ -175,5 +175,19 @@ public class Objek {
         gl.glVertex3f(2f, -2.0f, -4f);
         gl.glEnd();
     }
+    
+    static void Tabung(GL gl) {
+        float BODY_RADIUS = 0.1f;
+        float BODY_LENGTH = BODY_RADIUS * 30.0f;
+
+        int SLICES = 30;
+        int STACKS = 30;
+        GLU glu = new GLU();
+        GLUquadric q = glu.gluNewQuadric();
+        glu.gluCylinder(q, BODY_RADIUS, BODY_RADIUS, BODY_LENGTH, SLICES, STACKS);
+        glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS); //lingkaran untuk tutup atas         
+        gl.glTranslatef(0.0f, 0.0f, BODY_LENGTH);
+        glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS); //lingkaran untuk tutup bawah       
+    }
 
 }
