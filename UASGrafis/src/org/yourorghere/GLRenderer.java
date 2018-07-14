@@ -93,8 +93,10 @@ public class GLRenderer implements GLEventListener {
                 Lx, Ly, Lz,
                 0, 1, 0);
         gl.glTranslatef(0f, 0f, -5f);
-        gl.glRotatef(0.0f, 1.0f, 0.0f, 0.0f);
-        gl.glRotatef(0.0f, 0.0f, 0.0f, 1.0f);
+        gl.glRotatef(0.0f, 1.0f, 0.0f, 0.0f);//ini rotate x
+        gl.glRotatef(0f, 0.0f, 1.0f, 0.0f);// rotate y
+        
+        
         
         gl.glPushMatrix();
         Objek.badanbawah(gl);
@@ -104,11 +106,27 @@ public class GLRenderer implements GLEventListener {
         Objek.badanatas(gl);
         gl.glPopMatrix();
         
+//        gl.glPushMatrix();
+//        gl.glTranslatef(0f, -0.5f, -2f);
+//        gl.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+//        Objek.bak(gl);
+//        gl.glPopMatrix();
+        
+        
         gl.glPushMatrix();
-        gl.glTranslatef(0f, -0.5f, -2f);
-        gl.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
-        Objek.bak(gl);
+        gl.glTranslatef(1f, -2f, 0f);
+        Objek.roda(gl);
         gl.glPopMatrix();
+        
+        gl.glPushMatrix();
+        gl.glTranslatef(-2.5f, -2f, 0f);
+        Objek.roda(gl);
+        gl.glPopMatrix();
+        
+//        gl.glPushMatrix();
+//        gl.glTranslatef(-3f, -3f, 0f);
+//        Objek.roda(gl);
+//        gl.glPopMatrix();
 // Flush all drawing operations to the graphics card
         gl.glFlush();
     }

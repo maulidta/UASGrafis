@@ -125,7 +125,7 @@ public class Objek {
 
     static void badanbawah(GL gl) {
         gl.glBegin(GL.GL_POLYGON); // bak kotak belakang ijo
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(2f, -0.6f, -4f);
         gl.glVertex3f(2f, -2f, -4f);
         gl.glVertex3f(-4f, -2f, -4f);
@@ -133,7 +133,7 @@ public class Objek {
         gl.glEnd();
 
         gl.glBegin(GL.GL_POLYGON); // bak kotak samping biru
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(-4f, -2f, -4f);
         gl.glVertex3f(-4f, -0.6f, -4f);
         gl.glVertex3f(-4f, -0.6f, 0f);
@@ -141,7 +141,7 @@ public class Objek {
         gl.glEnd();
 
         gl.glBegin(GL.GL_POLYGON); // bak kotak atas koneng
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(-4f, -0.6f, 0f);
         gl.glVertex3f(2f, -0.6f, 0f);
         gl.glVertex3f(2f, -0.6f, -4f);
@@ -149,7 +149,7 @@ public class Objek {
         gl.glEnd();
 
         gl.glBegin(GL.GL_POLYGON); // bak samping atas merah
-        gl.glColor3f(1.0f, 0f, 0f);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(2f, -0.6f, -4f);
         gl.glVertex3f(2f, -2f, -4f);
         gl.glVertex3f(2f, -0.6f, 0f);
@@ -158,7 +158,7 @@ public class Objek {
         gl.glEnd();
 
         gl.glBegin(GL.GL_POLYGON); // bak kotak depan ijo muda
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(-4f, -0.6f, 0f);
         gl.glVertex3f(2f, -0.6f, 0f);
         gl.glVertex3f(-4f, -2.0f, 0f);
@@ -167,7 +167,7 @@ public class Objek {
         gl.glEnd();
 
         gl.glBegin(GL.GL_POLYGON); // bak kotak bawah bitu
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        gl.glColor3f(0.0f, 0.0f, 0.0f);
         gl.glVertex3f(-4f, -2.0f, -4f);
         gl.glVertex3f(2f, -2.0f, -4f);
         gl.glVertex3f(-4f, -2.0f, 0f);
@@ -176,18 +176,19 @@ public class Objek {
         gl.glEnd();
     }
     
-    static void Tabung(GL gl) {
-        float BODY_RADIUS = 0.1f;
-        float BODY_LENGTH = BODY_RADIUS * 30.0f;
-
+    static void roda(GL gl) {
+        float BODY_LENGTH = 0.5f;
+        float BODY_RADIUS = 0.65f;
         int SLICES = 30;
         int STACKS = 30;
         GLU glu = new GLU();
         GLUquadric q = glu.gluNewQuadric();
+        gl.glColor3f(1, 1, 1);
         glu.gluCylinder(q, BODY_RADIUS, BODY_RADIUS, BODY_LENGTH, SLICES, STACKS);
-        glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS); //lingkaran untuk tutup atas         
+        glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS);
+        //lingkaran untuk tutup atas
         gl.glTranslatef(0.0f, 0.0f, BODY_LENGTH);
-        glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS); //lingkaran untuk tutup bawah       
+        glu.gluDisk(q, 0.0f, BODY_RADIUS, SLICES, STACKS);      
     }
 
 }
